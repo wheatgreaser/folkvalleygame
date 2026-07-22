@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bpwwk03g5lab2"]
+
+[ext_resource type="Script" uid="uid://m74cg6a2kr5u" path="res://src/core/main_game.gd" id="1_deefb"]
+
+[node name="MainGame" type="Node" unique_id=272848867]
+script = ExtResource("1_deefb")
+
+[node name="Systems" type="Node" parent="." unique_id=1639634516]
+
+[node name="World" type="Node2D" parent="." unique_id=289247467]
+
+[node name="LevelRoot" type="Node2D" parent="World" unique_id=1822284253]
+unique_name_in_owner = true
+
+[node name="EntityRoot" type="Node2D" parent="World" unique_id=648500430]
+unique_name_in_owner = true
+
+[node name="EffectsRoot" type="Node2D" parent="World" unique_id=649148435]
+unique_name_in_owner = true
+
+[node name="HudLayer" type="CanvasLayer" parent="." unique_id=997334040]
+unique_name_in_owner = true
+
+[node name="HudRoot" type="Control" parent="HudLayer" unique_id=179052452]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1571015371]
+unique_name_in_owner = true
+
+[node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=1371394551]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=2136567155]
+unique_name_in_owner = true
+
+[node name="TransitionRoot" type="Control" parent="TransitionLayer" unique_id=372214656]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

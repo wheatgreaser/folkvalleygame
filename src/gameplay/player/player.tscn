@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cvk7uk0k1a3nu"]
+
+[ext_resource type="Script" uid="uid://bpj4cxrjm512b" path="res://src/gameplay/player/player.gd" id="1_kh5p4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_kh5p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh5p4"]
+
+[node name="Player" type="CharacterBody2D" unique_id=119426649]
+script = ExtResource("1_kh5p4")
+
+[node name="PlaceholderMesh" type="MeshInstance2D" parent="." unique_id=42427260]
+scale = Vector2(85, 85)
+mesh = SubResource("QuadMesh_kh5p4")
+
+[node name="PlayerCollider" type="CollisionShape2D" parent="." unique_id=1258650607]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_kh5p4")
