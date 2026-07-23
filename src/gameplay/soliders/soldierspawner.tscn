@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c5i6caid80xkq"]
+
+[ext_resource type="Script" uid="uid://bvmy3h1f4swue" path="res://src/gameplay/soliders/soldierspawner.gd" id="1_ccyr3"]
+
+[node name="Soldierspawner" type="Node2D" unique_id=1090851179]
+script = ExtResource("1_ccyr3")

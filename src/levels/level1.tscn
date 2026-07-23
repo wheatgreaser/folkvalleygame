@@ -243,8 +243,40 @@ texture = ExtResource("1_wyrbo")
 [sub_resource type="TileSet" id="TileSet_ay5hh"]
 sources/0 = SubResource("TileSetAtlasSource_3o7sa")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3o7sa"]
+size = Vector2(661, 20)
+
 [node name="Scene" type="Node2D" unique_id=688667358]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=380539479]
 tile_set = SubResource("TileSet_ay5hh")
 script = ExtResource("2_3o7sa")
+
+[node name="LevelBorderTop" type="StaticBody2D" parent="." unique_id=1799796435]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorderTop" unique_id=864852935]
+position = Vector2(318.5, -10)
+shape = SubResource("RectangleShape2D_3o7sa")
+
+[node name="LevelBorderBottom" type="StaticBody2D" parent="." unique_id=2028162885]
+position = Vector2(0, 382)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorderBottom" unique_id=2097020203]
+position = Vector2(318.5, -10)
+shape = SubResource("RectangleShape2D_3o7sa")
+
+[node name="LevelBorderLeft" type="StaticBody2D" parent="." unique_id=1459618545]
+position = Vector2(-20, -35)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorderLeft" unique_id=86562862]
+position = Vector2(318.5, -10)
+shape = SubResource("RectangleShape2D_3o7sa")
+
+[node name="LevelBorderRight" type="StaticBody2D" parent="." unique_id=1034603301]
+position = Vector2(642, -42)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorderRight" unique_id=258032738]
+position = Vector2(318.5, -10)
+shape = SubResource("RectangleShape2D_3o7sa")
