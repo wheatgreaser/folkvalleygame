@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://bpwwk03g5lab2"]
 
 [ext_resource type="Script" uid="uid://m74cg6a2kr5u" path="res://src/core/main_game.gd" id="1_deefb"]
+[ext_resource type="Script" uid="uid://btlbnmsvfcfcn" path="res://src/states/state_machine.gd" id="2_5j5uw"]
 
 [node name="MainGame" type="Node" unique_id=272848867]
 script = ExtResource("1_deefb")
 
 [node name="Systems" type="Node" parent="." unique_id=1639634516]
+
+[node name="State Machine" type="Node" parent="Systems" unique_id=225192200]
+script = ExtResource("2_5j5uw")
 
 [node name="World" type="Node2D" parent="." unique_id=289247467]
 
