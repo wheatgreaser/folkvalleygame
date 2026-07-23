@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://c08f3musdqkra"]
 
-[ext_resource type="Script" uid="uid://b7qhitw6nbmvp" path="res://src/gameplay/soldiers/soldier_idle.gd" id="1_3x1x4"]
-[ext_resource type="Script" uid="uid://bobx0ctlhwb47" path="res://src/gameplay/soldiers/selection.gd" id="2_u6l0c"]
+[ext_resource type="Script" uid="uid://b7qhitw6nbmvp" path="res://src/gameplay/soldiers/soldier_behaviour.gd" id="1_3x1x4"]
+[ext_resource type="Script" uid="uid://bobx0ctlhwb47" path="res://src/gameplay/soldiers/single_selection.gd" id="2_u6l0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3x1x4"]
 size = Vector2(24.800003, 23.000002)
 
 [sub_resource type="QuadMesh" id="QuadMesh_3x1x4"]
 
-[node name="Soldier" type="CharacterBody2D" unique_id=1677943854]
+[sub_resource type="QuadMesh" id="QuadMesh_rblve"]
+
+[node name="Soldier" type="CharacterBody2D" unique_id=1677943854 groups=["selectable-units"]]
 script = ExtResource("1_3x1x4")
 
 [node name="SoldierCollider" type="CollisionShape2D" parent="." unique_id=1868176347]
@@ -25,5 +27,10 @@ mesh = SubResource("QuadMesh_3x1x4")
 
 [node name="AreaCollider" type="CollisionShape2D" parent="Area2D" unique_id=1040790090]
 shape = SubResource("RectangleShape2D_3x1x4")
+
+[node name="Selector" type="MeshInstance2D" parent="." unique_id=1840010051]
+modulate = Color(0, 1, 0, 1)
+scale = Vector2(15, 15)
+mesh = SubResource("QuadMesh_rblve")
 
 [connection signal="selection_toggled" from="Area2D" to="." method="_on_area_2d_selection_toggled"]

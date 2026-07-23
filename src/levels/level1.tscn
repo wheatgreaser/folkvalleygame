@@ -246,11 +246,6 @@ sources/0 = SubResource("TileSetAtlasSource_3o7sa")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3o7sa"]
 size = Vector2(661, 20)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_3o7sa"]
-vertices = PackedVector2Array(621, 16.976563, 621, 337.0703, 14.2578125, 341.90625, 22.742188, 16.007813)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(13, 6, 631, 7, 631, 347, 4, 352)])
-
 [node name="Scene" type="Node2D" unique_id=688667358]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=380539479]
@@ -258,33 +253,17 @@ tile_set = SubResource("TileSet_ay5hh")
 script = ExtResource("2_3o7sa")
 
 [node name="LevelBorderTop" type="StaticBody2D" parent="." unique_id=1799796435]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorderTop" unique_id=864852935]
 position = Vector2(317, -8)
 shape = SubResource("RectangleShape2D_3o7sa")
 
-[node name="LevelBorderBottom" type="StaticBody2D" parent="." unique_id=2028162885]
-position = Vector2(0, 382)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorderBottom" unique_id=2097020203]
-position = Vector2(329, -10)
-shape = SubResource("RectangleShape2D_3o7sa")
-
 [node name="LevelBorderLeft" type="StaticBody2D" parent="." unique_id=1459618545]
+visible = false
 position = Vector2(-20, -35)
 rotation = 1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorderLeft" unique_id=86562862]
 position = Vector2(319, -8.000013)
 shape = SubResource("RectangleShape2D_3o7sa")
-
-[node name="LevelBorderRight" type="StaticBody2D" parent="." unique_id=1034603301]
-position = Vector2(642, -42)
-rotation = 1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorderRight" unique_id=258032738]
-position = Vector2(321, -7)
-shape = SubResource("RectangleShape2D_3o7sa")
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=502832759]
-navigation_polygon = SubResource("NavigationPolygon_3o7sa")
