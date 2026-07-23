@@ -40,9 +40,7 @@ func _load_level() -> void:
 	level_root.add_child(level)
 
 func _load_UI () -> void:
-	var grow_button_scene : PackedScene = preload(GROW_UID)
-	var grow_button : Control = grow_button_scene.instantiate()
-	HUD_root.add_child(grow_button)
+	pass
 
 func _starting_soldiers() -> void:
 	var soldier_spawner_scene : PackedScene = preload(SOLDIER_SPAWNER)

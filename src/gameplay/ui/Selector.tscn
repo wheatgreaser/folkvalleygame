@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://r6mkc8u6ueqk"]
-
-[ext_resource type="Script" uid="uid://clo37fsj1w2kg" path="res://src/gameplay/ui/selector.gd" id="1_xq805"]
-
-[node name="Selector" type="Control" unique_id=1616477659]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_xq805")

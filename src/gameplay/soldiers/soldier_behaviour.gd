@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 
 
 func is_in_selection_box(box: Rect2):
-	return box.has_point(global_position)
+	return box.has_point(get_global_transform_with_canvas().origin)
 
 func select():
 	add_to_group('selected-units')

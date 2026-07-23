@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dvmvcg53ul413"]
+
+[ext_resource type="Script" uid="uid://b4ls8mfynwrr2" path="res://src/gameplay/ui/player_menu/player_menu.gd" id="1_sxc4h"]
+
+[node name="PlayerMenu" type="Control" unique_id=207521941]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sxc4h")
