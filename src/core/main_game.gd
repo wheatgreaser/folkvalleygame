@@ -74,8 +74,6 @@ func _selector_init() -> void:
 func _toggle_display() -> void:
 	pass
 		
-		
-	
 
 func _ready() -> void:
 	_load_level()

@@ -5,15 +5,19 @@ const SPEED = 50
 var target_pos : Vector2
 var chase_target : CharacterBody2D 
 var chasing : bool = false
+var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
-	pass
-	
+	rng.randomize()
+
 func _physics_process(delta: float) -> void:
 	if chasing:
 		var direction : Vector2 = chase_target.global_position- global_position
 		velocity = direction.normalized() * SPEED
-
+	else:
+		rng.randomize()
+		var direction : Vector2 = Vector2(rng.randi_range(0, 4), rng.randi_range(0, 4))
+		velocity = direction.normalized() * 10
 	move_and_slide()
 
 

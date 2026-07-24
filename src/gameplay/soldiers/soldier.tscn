@@ -2,13 +2,65 @@
 
 [ext_resource type="Script" uid="uid://b7qhitw6nbmvp" path="res://src/gameplay/soldiers/soldier_behaviour.gd" id="1_3x1x4"]
 [ext_resource type="Script" uid="uid://bobx0ctlhwb47" path="res://src/gameplay/soldiers/single_selection.gd" id="2_u6l0c"]
+[ext_resource type="Texture2D" uid="uid://ce2pv4gvfqv1l" path="res://assets/selectorpixel.png" id="3_2cxd6"]
+[ext_resource type="Texture2D" uid="uid://dh4j1peeec53e" path="res://assets/player/playeridle2.png" id="3_jbki6"]
+[ext_resource type="Texture2D" uid="uid://r33bu6qc4ypg" path="res://assets/player/playermove1.png" id="5_7bdr4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3x1x4"]
 size = Vector2(24.800003, 23.000002)
 
-[sub_resource type="QuadMesh" id="QuadMesh_3x1x4"]
+[sub_resource type="Animation" id="Animation_jbki6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_jbki6")]
+}
 
-[sub_resource type="QuadMesh" id="QuadMesh_rblve"]
+[sub_resource type="Animation" id="Animation_7bdr4"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_jbki6")]
+}
+
+[sub_resource type="Animation" id="Animation_udrfa"]
+resource_name = "move"
+length = 0.23333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_jbki6"), ExtResource("5_7bdr4"), ExtResource("3_jbki6")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_udrfa"]
+_data = {
+&"RESET": SubResource("Animation_jbki6"),
+&"idle": SubResource("Animation_7bdr4"),
+&"move": SubResource("Animation_udrfa")
+}
 
 [node name="Soldier" type="CharacterBody2D" unique_id=1677943854 groups=["selectable-units", "soldier", "soldiers"]]
 script = ExtResource("1_3x1x4")
@@ -19,23 +71,25 @@ shape = SubResource("RectangleShape2D_3x1x4")
 [node name="Area2D" type="Area2D" parent="." unique_id=1867666657]
 script = ExtResource("2_u6l0c")
 
-[node name="SoldierMesh" type="MeshInstance2D" parent="Area2D" unique_id=834612734]
-scale = Vector2(20, 20)
-mesh = SubResource("QuadMesh_3x1x4")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Area2D" unique_id=64938980]
-
 [node name="AreaCollider" type="CollisionShape2D" parent="Area2D" unique_id=1040790090]
 shape = SubResource("RectangleShape2D_3x1x4")
 
-[node name="Selector" type="MeshInstance2D" parent="." unique_id=1840010051]
-modulate = Color(0, 1, 0, 1)
-scale = Vector2(15, 15)
-mesh = SubResource("QuadMesh_rblve")
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=125808987]
+texture_filter = 1
+position = Vector2(0, -1)
+texture = ExtResource("3_jbki6")
 
 [node name="FoodTimer" type="Timer" parent="." unique_id=1976531464]
 wait_time = 20.0
 autostart = true
+
+[node name="Selector" type="Sprite2D" parent="." unique_id=1702640344]
+texture_filter = 1
+position = Vector2(-1, 2)
+texture = ExtResource("3_2cxd6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1957716685]
+libraries/ = SubResource("AnimationLibrary_udrfa")
 
 [connection signal="selection_toggled" from="Area2D" to="." method="_on_area_2d_selection_toggled"]
 [connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]
