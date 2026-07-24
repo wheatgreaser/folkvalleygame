@@ -42,7 +42,6 @@ func deselect():
 	remove_from_group('selected-units')
 	selector.hide()
 
-		
 
 func _on_area_2d_selection_toggled(selection: Variant) -> void:
 	is_selected = selection

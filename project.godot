@@ -13,6 +13,10 @@ config_version=5
 config/name="folkvalley"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
+[autoload]
+
+Food="*uid://dwendn2h32jrn"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=1
@@ -27,6 +31,7 @@ window/stretch/mode="canvas_items"
 
 selected-units=""
 selectable-units=""
+soldiers=""
 
 [input]
 

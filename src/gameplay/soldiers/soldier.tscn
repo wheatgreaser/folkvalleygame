@@ -10,7 +10,7 @@ size = Vector2(24.800003, 23.000002)
 
 [sub_resource type="QuadMesh" id="QuadMesh_rblve"]
 
-[node name="Soldier" type="CharacterBody2D" unique_id=1677943854 groups=["selectable-units"]]
+[node name="Soldier" type="CharacterBody2D" unique_id=1677943854 groups=["selectable-units", "soldier", "soldiers"]]
 script = ExtResource("1_3x1x4")
 
 [node name="SoldierCollider" type="CollisionShape2D" parent="." unique_id=1868176347]
