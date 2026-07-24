@@ -10,3 +10,8 @@ func spawn_soldiers(num_spawn : int) -> void:
 		var soldier : CharacterBody2D = soldier_scene.instantiate()
 		soldier.position = Vector2(0 + rng.randi()%100,0 + rng.randi()%100)
 		add_child(soldier)
+		
+func _on_button_button_down() -> void:
+	if Food.food_count > 5:
+		spawn_soldiers(1)
+		Food.food_count -= 5

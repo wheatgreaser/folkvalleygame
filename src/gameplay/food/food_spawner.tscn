@@ -4,3 +4,9 @@
 
 [node name="FoodSpawner" type="Node2D" unique_id=1011388800]
 script = ExtResource("1_ks5wv")
+
+[node name="FoodSpawn" type="Timer" parent="." unique_id=223230909]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="FoodSpawn" to="." method="_on_food_spawn_timeout"]

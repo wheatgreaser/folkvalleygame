@@ -34,8 +34,6 @@ func _process(delta: float) -> void:
 		anim_player.play("idle")
 		set_process(false)
 	
-
-
 func is_in_selection_box(box: Rect2):
 	return box.has_point(get_global_transform_with_canvas().origin)
 

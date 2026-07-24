@@ -19,8 +19,9 @@ func _physics_process(delta: float) -> void:
 		if unit != null:
 			chase_target = unit
 			break
-	var direction : Vector2 = chase_target.global_position - global_position
-	position += direction.normalized() * 50 * delta
+	if chase_target != null:
+		var direction : Vector2 = chase_target.global_position - global_position
+		position += direction.normalized() * 50 * delta
 
 
 

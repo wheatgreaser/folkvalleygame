@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b7aq6usxu1r12"]
+
+[ext_resource type="Script" uid="uid://ynqp25m7yuo3" path="res://src/gameplay/boss/boss_spawner.gd" id="1_6yajg"]
+
+[node name="BossSpawner" type="Node2D" unique_id=1976805262]
+script = ExtResource("1_6yajg")
+
+[node name="BossSpawnTimer" type="Timer" parent="." unique_id=816354404]
+wait_time = 5.0
+one_shot = true
+
+[node name="BossDeathTimer" type="Timer" parent="." unique_id=770332986]
+wait_time = 10.0
+one_shot = true
+
+[node name="BossCanvas" type="CanvasLayer" parent="." unique_id=307672086]
+
+[node name="BossTime" type="Control" parent="BossCanvas" unique_id=792041036]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="BossLabel" type="RichTextLabel" parent="BossCanvas/BossTime" unique_id=1858481015]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 640.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Time Left"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="BossSpawnTimer" to="." method="_on_boss_spawn_timer_timeout"]
+[connection signal="timeout" from="BossDeathTimer" to="." method="_on_boss_death_timer_timeout"]

@@ -14,4 +14,5 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("soldiers")):
 		Food.food_count += 1
+		Food.food_career_total += 1
 		queue_free()

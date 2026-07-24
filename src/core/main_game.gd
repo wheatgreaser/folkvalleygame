@@ -3,13 +3,13 @@ extends Node
 const PLAYER_SCENE_UID : String = "uid://cvk7uk0k1a3nu"
 const CAMERA_UID : String = "uid://cftvanod25g6i"
 const LEVEL_SCENE_UID : String = "uid://cwv5k8osui84u"
-const PLAYER_MENU : String = "uid://dvmvcg53ul413"
+const GROW_COLONY_UID : String = "uid://oq78he05b01v"
 const SOLDIER_SPAWNER : String = "uid://c5i6caid80xkq"
 const FOOD_SPAWNER : String = "uid://bg4ubjfpcww4l"
 const SELECTOR_SCENE : String = "uid://r6mkc8u6ueqk"
 const FOOD_DISPLAY_UID : String = "uid://gcw7vctcsb3g"
 const ENEMY_SPAWNER_UID : String = "uid://dc2e6dp30r553"
-const BOSS_SCENE_UID : String = "uid://bde8vvjg2o8d5"
+const BOSS_SPAWNER_UID : String = "uid://b7aq6usxu1r12"
 
 var player_scene : PackedScene = preload(PLAYER_SCENE_UID)
 var camera_scene : PackedScene = preload(CAMERA_UID)
@@ -48,7 +48,6 @@ func _load_UI () -> void:
 	var food_display_ui : Control = food_display.instantiate()
 	HUD_root.add_child(food_display_ui)
 
-
 func _starting_soldiers() -> void:
 	var soldier_spawner_scene : PackedScene = preload(SOLDIER_SPAWNER)
 	var soldier_spawner : Node2D = soldier_spawner_scene.instantiate()
@@ -75,21 +74,24 @@ func _selector_init() -> void:
 func _toggle_display() -> void:
 	pass
 
-func _spawn_boss() -> void:
-	var boss_scene : PackedScene = load(BOSS_SCENE_UID)
-	var boss : CharacterBody2D = boss_scene.instantiate()
-	boss.position = Vector2(200,200)
-	entity_root.add_child(boss)
+func _boss_spawning() -> void:
+	var boss_spawner_scene : PackedScene = preload(BOSS_SPAWNER_UID)
+	var boss_spawner : Node2D = boss_spawner_scene.instantiate()
+	entity_root.add_child(boss_spawner)
 
 func _ready() -> void:
 	_load_level()
 	_camera_init()
 	_load_UI()
 	_selector_init()
-	_starting_soldiers()
 	_starting_food()
+	_boss_spawning()
 	_create_enemies()
-	_spawn_boss()
-	
+	_starting_soldiers()
+
 func _process(_delta: float) -> void:
-	pass
+	if len(get_tree().get_nodes_in_group("soldiers")) <= 0:
+		get_tree().change_scene_to_file("res://src/levels/death.tscn")
+	elif Food.food_count <= 0:
+		get_tree().change_scene_to_file("res://src/levels/death.tscn")
+		
