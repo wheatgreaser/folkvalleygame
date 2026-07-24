@@ -33,4 +33,9 @@ modulate = Color(0, 1, 0, 1)
 scale = Vector2(15, 15)
 mesh = SubResource("QuadMesh_rblve")
 
+[node name="FoodTimer" type="Timer" parent="." unique_id=1976531464]
+wait_time = 20.0
+autostart = true
+
 [connection signal="selection_toggled" from="Area2D" to="." method="_on_area_2d_selection_toggled"]
+[connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]

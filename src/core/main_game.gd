@@ -8,6 +8,7 @@ const SOLDIER_SPAWNER : String = "uid://c5i6caid80xkq"
 const FOOD_SPAWNER : String = "uid://bg4ubjfpcww4l"
 const SELECTOR_SCENE : String = "uid://r6mkc8u6ueqk"
 const FOOD_DISPLAY_UID : String = "uid://gcw7vctcsb3g"
+const ENEMY_SPAWNER_UID : String = "uid://dc2e6dp30r553"
 
 var player_scene : PackedScene = preload(PLAYER_SCENE_UID)
 var camera_scene : PackedScene = preload(CAMERA_UID)
@@ -59,6 +60,12 @@ func _starting_food() -> void:
 	entity_root.add_child(food_spawner)
 	food_spawner.spawn_food(100)	
 
+func _create_enemies() -> void:
+	var enemy_spawner_scene : PackedScene = preload(ENEMY_SPAWNER_UID)
+	var enemy_spawner : Node2D = enemy_spawner_scene.instantiate()
+	entity_root.add_child(enemy_spawner)
+	enemy_spawner.spawn_enemies(10)	
+
 func _selector_init() -> void:
 	var selector_scene : PackedScene = preload(SELECTOR_SCENE)
 	var selector : Control = selector_scene.instantiate()
@@ -77,6 +84,7 @@ func _ready() -> void:
 	_selector_init()
 	_starting_soldiers()
 	_starting_food()
+	_create_enemies()
 	
 func _process(_delta: float) -> void:
 	pass

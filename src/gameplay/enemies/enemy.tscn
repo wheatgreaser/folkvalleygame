@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dgnuqeicgk1cs"]
+
+[ext_resource type="Texture2D" uid="uid://7wy3gwre1ydb" path="res://assets/enemy32.png" id="1_bj521"]
+[ext_resource type="Script" uid="uid://bs3q25sdtvpyp" path="res://src/gameplay/enemies/enemy.gd" id="1_leloy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_leloy"]
+size = Vector2(13, 20.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bj521"]
+radius = 109.004585
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_leloy"]
+radius = 18.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=700784391 groups=["enemies"]]
+script = ExtResource("1_leloy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1770369047]
+texture_filter = 1
+texture = ExtResource("1_bj521")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=559626733]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_leloy")
+
+[node name="ChaseRange" type="Area2D" parent="." unique_id=754484968]
+
+[node name="ChaseCollider" type="CollisionShape2D" parent="ChaseRange" unique_id=1891921524]
+shape = SubResource("CircleShape2D_bj521")
+
+[node name="KillRange" type="Area2D" parent="." unique_id=1615689296]
+
+[node name="KillCollider" type="CollisionShape2D" parent="KillRange" unique_id=1168757755]
+shape = SubResource("CircleShape2D_leloy")
+
+[connection signal="body_entered" from="ChaseRange" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="ChaseRange" to="." method="_on_chase_range_body_exited"]
+[connection signal="body_entered" from="KillRange" to="." method="_on_kill_range_body_entered"]

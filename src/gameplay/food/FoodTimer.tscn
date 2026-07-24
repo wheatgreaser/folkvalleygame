@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://d3m240dbvskkt"]
+
+[node name="FoodTimer" type="Timer" unique_id=973346848]
+wait_time = 20.0

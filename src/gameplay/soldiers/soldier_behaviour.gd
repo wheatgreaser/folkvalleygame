@@ -3,8 +3,11 @@ extends CharacterBody2D
 @export var is_selected = false
 @onready var selector = $Selector
 
+
 var target_pos : Vector2
 var mouse_pos := Vector2(0,0)
+
+
 
 func _ready() -> void:
 	selector.hide()
@@ -25,7 +28,7 @@ func _process(delta: float) -> void:
 	var diff = target_pos - global_position
 	if diff.length() > 0.1:
 		var dir = diff.normalized()
-		global_position += dir * delta * 100
+		global_position += dir * delta * 200
 	else:
 		set_process(false)
 
@@ -45,5 +48,6 @@ func deselect():
 
 func _on_area_2d_selection_toggled(selection: Variant) -> void:
 	is_selected = selection
-	
-		
+
+func _on_food_timer_timeout() -> void:
+	Food.food_count -= 1
