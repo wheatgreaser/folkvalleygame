@@ -11,4 +11,10 @@ func get_input() -> Vector2:
 	return input_direction
 
 func _process(delta: float) -> void:
+	if position.x >= 300 and position.y >= 160:
 		position += speed * get_input() * delta
+	elif position.x < 300:
+		position.x += 5 
+	elif position.y < 160:
+		position.y += 5 
+	print(position)

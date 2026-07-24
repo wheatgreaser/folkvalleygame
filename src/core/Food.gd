@@ -1,3 +1,3 @@
 extends Node
 
-var food_count = 10
+var food_count : int = 10

@@ -7,7 +7,7 @@ const PLAYER_MENU : String = "uid://dvmvcg53ul413"
 const SOLDIER_SPAWNER : String = "uid://c5i6caid80xkq"
 const FOOD_SPAWNER : String = "uid://bg4ubjfpcww4l"
 const SELECTOR_SCENE : String = "uid://r6mkc8u6ueqk"
-
+const FOOD_DISPLAY_UID : String = "uid://gcw7vctcsb3g"
 
 var player_scene : PackedScene = preload(PLAYER_SCENE_UID)
 var camera_scene : PackedScene = preload(CAMERA_UID)
@@ -42,10 +42,10 @@ func _load_level() -> void:
 	level_root.add_child(level)
 
 func _load_UI () -> void:
-	var player_menu : PackedScene = preload(PLAYER_MENU)
-	var player_menu_ui : Control = player_menu.instantiate()
-	player_menu_ui.visible = false
-	HUD_root.add_child(player_menu_ui)
+	var food_display : PackedScene = preload(FOOD_DISPLAY_UID)
+	var food_display_ui : Control = food_display.instantiate()
+	HUD_root.add_child(food_display_ui)
+
 
 func _starting_soldiers() -> void:
 	var soldier_spawner_scene : PackedScene = preload(SOLDIER_SPAWNER)
