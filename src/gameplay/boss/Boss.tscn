@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bde8vvjg2o8d5"]
+
+[ext_resource type="Script" uid="uid://jgcv2guv1dyj" path="res://src/gameplay/boss/boss.gd" id="1_nmwus"]
+[ext_resource type="Texture2D" uid="uid://xiliv2fnlsfe" path="res://assets/snakeboss/bossidle2.png" id="1_svt3s"]
+[ext_resource type="Texture2D" uid="uid://de6dflteajxks" path="res://assets/snakeboss/bossmove1.png" id="3_p11m4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p11m4"]
+size = Vector2(34, 53)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nmwus"]
+radius = 286.007
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmwus"]
+size = Vector2(51, 65)
+
+[sub_resource type="Animation" id="Animation_aktk0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_svt3s")]
+}
+
+[sub_resource type="Animation" id="Animation_nmwus"]
+resource_name = "boss_move"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_svt3s"), ExtResource("3_p11m4")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p11m4"]
+_data = {
+&"RESET": SubResource("Animation_aktk0"),
+&"boss_move": SubResource("Animation_nmwus")
+}
+
+[node name="Boss" type="CharacterBody2D" unique_id=73134222]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_nmwus")
+
+[node name="BossColl" type="CollisionShape2D" parent="." unique_id=1746303642]
+position = Vector2(-4, 1.5)
+shape = SubResource("RectangleShape2D_p11m4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=841584297]
+texture_filter = 1
+texture = ExtResource("1_svt3s")
+
+[node name="ChaseArea" type="Area2D" parent="." unique_id=228019247]
+
+[node name="ChaseCollider" type="CollisionShape2D" parent="ChaseArea" unique_id=930782785]
+shape = SubResource("CircleShape2D_nmwus")
+
+[node name="KillArea" type="Area2D" parent="." unique_id=1176275384]
+
+[node name="KillCollider" type="CollisionShape2D" parent="KillArea" unique_id=127943194]
+position = Vector2(-2.5, 2.5)
+shape = SubResource("RectangleShape2D_nmwus")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1053035228]
+libraries/ = SubResource("AnimationLibrary_p11m4")
+
+[connection signal="body_entered" from="ChaseArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="ChaseArea" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="KillArea" to="." method="_on_kill_area_body_entered"]

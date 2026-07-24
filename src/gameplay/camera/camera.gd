@@ -17,4 +17,3 @@ func _process(delta: float) -> void:
 		position.x += 5 
 	elif position.y < 160:
 		position.y += 5 
-	print(position)

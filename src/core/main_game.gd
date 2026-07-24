@@ -9,6 +9,7 @@ const FOOD_SPAWNER : String = "uid://bg4ubjfpcww4l"
 const SELECTOR_SCENE : String = "uid://r6mkc8u6ueqk"
 const FOOD_DISPLAY_UID : String = "uid://gcw7vctcsb3g"
 const ENEMY_SPAWNER_UID : String = "uid://dc2e6dp30r553"
+const BOSS_SCENE_UID : String = "uid://bde8vvjg2o8d5"
 
 var player_scene : PackedScene = preload(PLAYER_SCENE_UID)
 var camera_scene : PackedScene = preload(CAMERA_UID)
@@ -73,7 +74,12 @@ func _selector_init() -> void:
 
 func _toggle_display() -> void:
 	pass
-		
+
+func _spawn_boss() -> void:
+	var boss_scene : PackedScene = load(BOSS_SCENE_UID)
+	var boss : CharacterBody2D = boss_scene.instantiate()
+	boss.position = Vector2(200,200)
+	entity_root.add_child(boss)
 
 func _ready() -> void:
 	_load_level()
@@ -83,6 +89,7 @@ func _ready() -> void:
 	_starting_soldiers()
 	_starting_food()
 	_create_enemies()
+	_spawn_boss()
 	
 func _process(_delta: float) -> void:
 	pass

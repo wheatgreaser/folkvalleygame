@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dosa2pxbutvcw" path="res://assets/tileset/floor.png" id="1_wyrbo"]
 [ext_resource type="Script" uid="uid://dw75bovwvvkdd" path="res://src/levels/tilepainter.gd" id="2_3o7sa"]
+[ext_resource type="Texture2D" uid="uid://ba4qisbm50g8s" path="res://assets/tileset/forestfloor.png" id="2_ay5hh"]
+[ext_resource type="Texture2D" uid="uid://crq74yo1gx6rp" path="res://assets/tileset/palettetile.png" id="3_ih7hf"]
+[ext_resource type="Texture2D" uid="uid://wnydl6w6rfea" path="res://assets/tileset/palettetile2.png" id="4_ghtb1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3o7sa"]
 texture = ExtResource("1_wyrbo")
@@ -240,8 +243,38 @@ texture = ExtResource("1_wyrbo")
 10:19/0 = 0
 11:19/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ih7hf"]
+texture = ExtResource("2_ay5hh")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ghtb1"]
+texture = ExtResource("3_ih7hf")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bn18y"]
+texture = ExtResource("4_ghtb1")
+0:0/0 = 0
+1:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_ay5hh"]
 sources/0 = SubResource("TileSetAtlasSource_3o7sa")
+sources/1 = SubResource("TileSetAtlasSource_ih7hf")
+sources/2 = SubResource("TileSetAtlasSource_ghtb1")
+sources/4 = SubResource("TileSetAtlasSource_bn18y")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3o7sa"]
 size = Vector2(661, 20)
@@ -249,6 +282,7 @@ size = Vector2(661, 20)
 [node name="Scene" type="Node2D" unique_id=688667358]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=380539479]
+texture_filter = 1
 tile_set = SubResource("TileSet_ay5hh")
 script = ExtResource("2_3o7sa")
 

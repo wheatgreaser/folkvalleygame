@@ -38,4 +38,5 @@ func _on_chase_range_body_exited(body: Node2D) -> void:
 
 func _on_kill_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("soldiers"):
+		chasing = false
 		body.queue_free()
