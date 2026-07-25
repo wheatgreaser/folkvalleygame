@@ -6,6 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3o7sa"]
 size = Vector2(5350.5, 20)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3o7sa"]
+vertices = PackedVector2Array(3923.0078, 37.90625, 3927.9766, 2687.0313, 25.9375, 2700.961, 11.046875, 6.078125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1, -4, 3933, 28, 3938, 2697, 16, 2711)])
+
 [node name="Scene" type="Node2D" unique_id=688667358]
 script = ExtResource("1_3o7sa")
 
@@ -29,3 +34,6 @@ offset_right = 3961.0
 offset_bottom = 2749.0
 texture = ExtResource("1_wyrbo")
 stretch_mode = 1
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1592010309]
+navigation_polygon = SubResource("NavigationPolygon_3o7sa")

@@ -7,42 +7,46 @@ extends CharacterBody2D
 var target_pos : Vector2
 var mouse_pos := Vector2(0,0)
 
-
+var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	selector.hide()
-	set_process(false)
+	set_physics_process(false)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	var next_pos : Vector2 = $NavigationAgent2D.get_next_path_position()
+	var diff : Vector2 = next_pos - global_position
+	if not $NavigationAgent2D.is_navigation_finished():
+		var dir : Vector2 = diff.normalized()
+		global_position += dir * delta * 200
+		anim_player.play("move")
+	else:
+		anim_player.play("idle")
+		set_physics_process(false)
 	move_and_collide(Vector2(0,0))
 
 func _input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton and is_in_group("selected-units"):
 		if event.button_index == MOUSE_BUTTON_RIGHT:
-			set_process(true)
+			set_physics_process(true)
 			target_pos = get_global_mouse_position()
-	
+			
+			$NavigationAgent2D.target_position = target_pos 
+
 	
 func _process(delta: float) -> void:
-	var diff = target_pos - global_position
-	if diff.length() > 0.1:
-		var dir = diff.normalized()
-		global_position += dir * delta * 200
-		anim_player.play("move")
-	else:
-		anim_player.play("idle")
-		set_process(false)
+	pass
 	
-func is_in_selection_box(box: Rect2):
+func is_in_selection_box(box: Rect2) -> bool:
 	return box.has_point(get_global_transform_with_canvas().origin)
 
-func select():
+func select() -> void:
 	add_to_group('selected-units')
 	selector.show()
 	
 
-func deselect():
+func deselect() -> void:
 	remove_from_group('selected-units')
 	selector.hide()
 

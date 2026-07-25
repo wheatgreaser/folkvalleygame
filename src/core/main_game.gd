@@ -112,7 +112,10 @@ func _load_game() -> void:
 	_load_UI()
 	_boss_spawning()
 	
-
+func _move_selected_units(pos : Vector2) -> void:
+	var units = get_tree().get_nodes_in_group('selected-units')
+	for unit in units:
+		unit.move(pos)
 func _colonize_button_down() -> void:
 	_load_game()
 

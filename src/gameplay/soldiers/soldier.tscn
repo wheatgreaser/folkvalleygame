@@ -91,5 +91,7 @@ texture = ExtResource("3_2cxd6")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1957716685]
 libraries/ = SubResource("AnimationLibrary_udrfa")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=406655260]
+
 [connection signal="selection_toggled" from="Area2D" to="." method="_on_area_2d_selection_toggled"]
 [connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]
