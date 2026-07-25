@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b4j8lxbf2qt8e"]
+
+[ext_resource type="Texture2D" uid="uid://jl3dewcvf30j" path="res://assets/levelbg/tutorialbg.png" id="1_n4f5v"]
+
+[node name="Tutorial" type="Node2D" unique_id=779122202]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1850275371]
+texture_filter = 1
+offset_right = 641.0
+offset_bottom = 362.0
+texture = ExtResource("1_n4f5v")
+stretch_mode = 1
+
+[node name="TextLayout" type="Control" parent="." unique_id=1888800653]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label1" type="RichTextLabel" parent="TextLayout" unique_id=678880469]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 20.0
+offset_right = 366.0
+offset_bottom = 90.0
+text = "hold and drag left click to select units"
+
+[node name="Label2" type="RichTextLabel" parent="TextLayout" unique_id=1910733697]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 51.0
+offset_right = 512.0
+offset_bottom = 121.0
+text = "right click them anywhere on the screen to move them there"
+
+[node name="Label4" type="RichTextLabel" parent="TextLayout" unique_id=167111540]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 218.0
+offset_right = 666.0
+offset_bottom = 319.0
+text = "dont let all your colony members die, or your food to hit zero
+
+press space bar to start the game"
+
+[node name="Label3" type="RichTextLabel" parent="TextLayout" unique_id=1529155033]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 166.0
+offset_right = 288.0
+offset_bottom = 267.0
+text = "use wasd to move the camera around"

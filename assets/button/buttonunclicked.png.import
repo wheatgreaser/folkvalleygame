@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csg4r5josdpy2"
-path="res://.godot/imported/orangepixel32.png-cce536ff97c9af8dee344d2a8698fdba.ctex"
+uid="uid://c2j13beo84e5v"
+path="res://.godot/imported/buttonunclicked.png-5a032a6bfb40e513d6c94fed91706b44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/orangepixel32.png"
-dest_files=["res://.godot/imported/orangepixel32.png-cce536ff97c9af8dee344d2a8698fdba.ctex"]
+source_file="res://assets/button/buttonunclicked.png"
+dest_files=["res://.godot/imported/buttonunclicked.png-5a032a6bfb40e513d6c94fed91706b44.ctex"]
 
 [params]
 

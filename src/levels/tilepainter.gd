@@ -13,4 +13,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	pass
+	if len(get_tree().get_nodes_in_group("soldiers")) <= 0:
+		get_tree().change_scene_to_file("res://src/levels/death.tscn")
+	elif Food.food_count <= 0:
+		get_tree().change_scene_to_file("res://src/levels/death.tscn")

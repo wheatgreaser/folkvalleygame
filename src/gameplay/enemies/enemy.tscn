@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgnuqeicgk1cs"]
 
-[ext_resource type="Texture2D" uid="uid://7wy3gwre1ydb" path="res://assets/enemy32.png" id="1_bj521"]
+[ext_resource type="Texture2D" uid="uid://7wy3gwre1ydb" path="res://assets/other/enemy32.png" id="1_bj521"]
 [ext_resource type="Script" uid="uid://bs3q25sdtvpyp" path="res://src/gameplay/enemies/enemy.gd" id="1_leloy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_leloy"]

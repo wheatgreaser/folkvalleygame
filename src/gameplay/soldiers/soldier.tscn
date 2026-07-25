@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7qhitw6nbmvp" path="res://src/gameplay/soldiers/soldier_behaviour.gd" id="1_3x1x4"]
 [ext_resource type="Script" uid="uid://bobx0ctlhwb47" path="res://src/gameplay/soldiers/single_selection.gd" id="2_u6l0c"]
-[ext_resource type="Texture2D" uid="uid://ce2pv4gvfqv1l" path="res://assets/selectorpixel.png" id="3_2cxd6"]
+[ext_resource type="Texture2D" uid="uid://ce2pv4gvfqv1l" path="res://assets/player/selectorpixel.png" id="3_2cxd6"]
 [ext_resource type="Texture2D" uid="uid://dh4j1peeec53e" path="res://assets/player/playeridle2.png" id="3_jbki6"]
 [ext_resource type="Texture2D" uid="uid://r33bu6qc4ypg" path="res://assets/player/playermove1.png" id="5_7bdr4"]
 

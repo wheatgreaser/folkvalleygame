@@ -10,6 +10,7 @@ const SELECTOR_SCENE : String = "uid://r6mkc8u6ueqk"
 const FOOD_DISPLAY_UID : String = "uid://gcw7vctcsb3g"
 const ENEMY_SPAWNER_UID : String = "uid://dc2e6dp30r553"
 const BOSS_SPAWNER_UID : String = "uid://b7aq6usxu1r12"
+const TITLE_SCREEN_UID : String = "uid://qs1wgpqx7shp"
 
 var player_scene : PackedScene = preload(PLAYER_SCENE_UID)
 var camera_scene : PackedScene = preload(CAMERA_UID)
@@ -39,8 +40,8 @@ func _camera_init(start_position := Vector2((get_viewport().size.x)/2,(get_viewp
 	
 		
 func _load_level() -> void:
-	var level_scene : PackedScene = preload(LEVEL_SCENE_UID)
-	var level : Node2D = level_scene.instantiate()
+	var level_scene : PackedScene = preload(TITLE_SCREEN_UID)
+	var level : Control = level_scene.instantiate()
 	level_root.add_child(level)
 
 func _load_UI () -> void:
@@ -81,17 +82,28 @@ func _boss_spawning() -> void:
 
 func _ready() -> void:
 	_load_level()
-	_camera_init()
-	_load_UI()
-	_selector_init()
-	_starting_food()
-	_boss_spawning()
-	_create_enemies()
-	_starting_soldiers()
+	var colonize_button : Button = get_node("%LevelRoot/TitleScreen/Colonize")
+	colonize_button.button_down.connect(_colonize_button_down)
 
 func _process(_delta: float) -> void:
-	if len(get_tree().get_nodes_in_group("soldiers")) <= 0:
-		get_tree().change_scene_to_file("res://src/levels/death.tscn")
-	elif Food.food_count <= 0:
-		get_tree().change_scene_to_file("res://src/levels/death.tscn")
-		
+	pass
+
+func _load_game_scene() -> void:
+	var level_scene : PackedScene = preload(LEVEL_SCENE_UID)
+	var level : Node2D = level_scene.instantiate()
+	level_root.add_child(level)
+	
+func _load_game() -> void:
+	get_node("%LevelRoot/TitleScreen").queue_free()
+	_load_game_scene()
+	_camera_init()
+	_selector_init()
+	_create_enemies()
+	_starting_soldiers()
+	_starting_food()
+	_load_UI()
+	_boss_spawning()
+	
+
+func _colonize_button_down() -> void:
+	_load_game()

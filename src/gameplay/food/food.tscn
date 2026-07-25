@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxm0vgfnpjqh7"]
 
 [ext_resource type="Script" uid="uid://qa0pi62ui4ca" path="res://src/gameplay/food/food.gd" id="1_6rkln"]
-[ext_resource type="Texture2D" uid="uid://csg4r5josdpy2" path="res://assets/orangepixel32.png" id="1_ks8s5"]
+[ext_resource type="Texture2D" uid="uid://csg4r5josdpy2" path="res://assets/other/orangepixel32.png" id="1_ks8s5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ks8s5"]
 size = Vector2(21, 21)

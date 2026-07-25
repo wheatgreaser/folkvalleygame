@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://qs1wgpqx7shp"]
+
+[ext_resource type="Texture2D" uid="uid://c4wuhgynagdjq" path="res://assets/levelbg/TitleScreenFolkValley.png" id="1_3jb6p"]
+[ext_resource type="Script" uid="uid://ya2btaso6pud" path="res://src/levels/title_screen.gd" id="1_k8vv4"]
+[ext_resource type="Theme" uid="uid://cbmml1c8rp2xq" path="res://src/resources/button.tres" id="2_tjnh7"]
+
+[node name="TitleScreen" type="Control" unique_id=739576040]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k8vv4")
+
+[node name="TitleScreenFolkValley" type="Sprite2D" parent="." unique_id=1755976668]
+texture_filter = 1
+position = Vector2(323.5, 185)
+scale = Vector2(0.3373181, 0.33941606)
+texture = ExtResource("1_3jb6p")
+
+[node name="Colonize" type="Button" parent="." unique_id=28728879]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 161.0
+offset_right = 396.0
+offset_bottom = 205.0
+theme = ExtResource("2_tjnh7")
+text = "COLONIZE!"
+
+[node name="Tutorial" type="Button" parent="." unique_id=268714539]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 221.0
+offset_right = 397.0
+offset_bottom = 265.0
+theme = ExtResource("2_tjnh7")
+text = "TUTORIAL"
