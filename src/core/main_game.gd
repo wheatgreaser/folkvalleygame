@@ -11,6 +11,7 @@ const FOOD_DISPLAY_UID : String = "uid://gcw7vctcsb3g"
 const ENEMY_SPAWNER_UID : String = "uid://dc2e6dp30r553"
 const BOSS_SPAWNER_UID : String = "uid://b7aq6usxu1r12"
 const TITLE_SCREEN_UID : String = "uid://qs1wgpqx7shp"
+const TUTORIAL_SCENE_UID : String = "uid://b4j8lxbf2qt8e"
 
 var player_scene : PackedScene = preload(PLAYER_SCENE_UID)
 var camera_scene : PackedScene = preload(CAMERA_UID)
@@ -83,13 +84,20 @@ func _boss_spawning() -> void:
 func _ready() -> void:
 	_load_level()
 	var colonize_button : Button = get_node("%LevelRoot/TitleScreen/Colonize")
+	var tutorial_button : Button = get_node("%LevelRoot/TitleScreen/Tutorial")
 	colonize_button.button_down.connect(_colonize_button_down)
+	tutorial_button.button_down.connect(_tutorial_button_down)
 
 func _process(_delta: float) -> void:
 	pass
 
 func _load_game_scene() -> void:
 	var level_scene : PackedScene = preload(LEVEL_SCENE_UID)
+	var level : Node2D = level_scene.instantiate()
+	level_root.add_child(level)
+
+func _load_tut_scene() -> void:
+	var level_scene : PackedScene = preload(TUTORIAL_SCENE_UID)
 	var level : Node2D = level_scene.instantiate()
 	level_root.add_child(level)
 	
@@ -107,3 +115,11 @@ func _load_game() -> void:
 
 func _colonize_button_down() -> void:
 	_load_game()
+
+func _tutorial_button_down() -> void:
+	_load_tut_scene()
+	_camera_init()
+	_selector_init()
+	_starting_soldiers()
+	_starting_food()
+	

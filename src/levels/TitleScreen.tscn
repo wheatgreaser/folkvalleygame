@@ -22,17 +22,17 @@ texture = ExtResource("1_3jb6p")
 [node name="Colonize" type="Button" parent="." unique_id=28728879]
 layout_mode = 0
 offset_left = 258.0
-offset_top = 161.0
+offset_top = 181.0
 offset_right = 396.0
-offset_bottom = 205.0
+offset_bottom = 225.0
 theme = ExtResource("2_tjnh7")
 text = "COLONIZE!"
 
 [node name="Tutorial" type="Button" parent="." unique_id=268714539]
 layout_mode = 0
-offset_left = 259.0
-offset_top = 221.0
-offset_right = 397.0
-offset_bottom = 265.0
+offset_left = 261.0
+offset_top = 249.0
+offset_right = 399.0
+offset_bottom = 293.0
 theme = ExtResource("2_tjnh7")
 text = "TUTORIAL"
