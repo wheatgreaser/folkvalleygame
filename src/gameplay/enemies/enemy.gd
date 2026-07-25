@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("soldiers") and not chasing:
+	if body.is_in_group("killable") and not chasing:
 		chase_target = body
 		target_pos = body.global_position
 		chasing = true
@@ -30,13 +30,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_chase_range_body_exited(body: Node2D) -> void:
-	if body.is_in_group("soldiers") and chasing and chase_target != null:
+	if body.is_in_group("killable") and chasing and chase_target != null:
 		chasing = false
 		chase_target = null
 	pass
 
 
 func _on_kill_range_body_entered(body: Node2D) -> void:
-	if body.is_in_group("soldiers"):
+	if body.is_in_group("killable"):
 		chasing = false
 		body.queue_free()

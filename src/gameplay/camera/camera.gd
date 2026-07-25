@@ -1,10 +1,10 @@
 extends Camera2D
 
 @export var speed: float = 400
-@export var start_pos:= Vector2(0,0)
+@export var start_pos:= Vector2(1000,1000)
 
 func _ready() -> void:
-	pass
+	global_position = start_pos
 
 func get_input() -> Vector2:
 	var input_direction : Vector2 = Input.get_vector("left", "right", "up", "down")

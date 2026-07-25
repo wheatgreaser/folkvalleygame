@@ -37,6 +37,7 @@ selected-units=""
 selectable-units=""
 soldiers=""
 enemies=""
+killable=""
 
 [input]
 

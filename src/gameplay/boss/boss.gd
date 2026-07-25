@@ -28,5 +28,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_kill_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("soldiers"):
+	if body.is_in_group("killable"):
 		body.queue_free()

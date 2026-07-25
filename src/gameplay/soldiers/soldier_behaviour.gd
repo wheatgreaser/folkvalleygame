@@ -10,6 +10,7 @@ var mouse_pos := Vector2(0,0)
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	remove_from_group("killable")
 	selector.hide()
 	set_physics_process(false)
 
@@ -56,3 +57,7 @@ func _on_area_2d_selection_toggled(selection: Variant) -> void:
 
 func _on_food_timer_timeout() -> void:
 	Food.food_count -= 1
+
+
+func _on_spawn_safe_timeout() -> void:
+	add_to_group("killable")

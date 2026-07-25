@@ -31,10 +31,10 @@ func _player_init() -> void:
 	else:
 		print("player not found son")
 
-func _camera_init(start_position := Vector2((get_viewport().size.x)/2,(get_viewport().size.y)/2)) -> void:
+func _camera_init(start_position := Vector2(1000, 1000)) -> void:
 	var camera : Camera2D = camera_scene.instantiate()
 	if camera != null:
-		camera.start_pos = start_position
+		camera.global_position = start_position
 		entity_root.add_child(camera)
 	else:
 		print("camera not found son")
@@ -104,7 +104,7 @@ func _load_tut_scene() -> void:
 func _load_game() -> void:
 	get_node("%LevelRoot/TitleScreen").queue_free()
 	_load_game_scene()
-	_camera_init()
+	_camera_init(Vector2(1000, 1000))
 	_selector_init()
 	_create_enemies()
 	_starting_soldiers()
@@ -121,7 +121,7 @@ func _colonize_button_down() -> void:
 
 func _tutorial_button_down() -> void:
 	_load_tut_scene()
-	_camera_init()
+	_camera_init(Vector2(1000, 1000))
 	_selector_init()
 	_starting_soldiers()
 	_starting_food()

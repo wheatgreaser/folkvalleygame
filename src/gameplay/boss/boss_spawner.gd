@@ -11,7 +11,7 @@ func _ready() -> void:
 func _spawn_boss() -> void:
 	var boss_scene : PackedScene = load(BOSS_SCENE_UID)
 	boss  = boss_scene.instantiate()
-	boss.position = Vector2(200,200)
+	boss.position = Vector2(1000,1000)
 	boss.scale = Vector2(2,2)
 	add_child(boss)
 
