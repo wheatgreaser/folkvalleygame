@@ -60,13 +60,13 @@ func _starting_food() -> void:
 	var food_spawner_scene : PackedScene = preload(FOOD_SPAWNER)
 	var food_spawner : Node2D = food_spawner_scene.instantiate()
 	entity_root.add_child(food_spawner)
-	food_spawner.spawn_food(100)	
+	food_spawner.spawn_food(500)	
 
 func _create_enemies() -> void:
 	var enemy_spawner_scene : PackedScene = preload(ENEMY_SPAWNER_UID)
 	var enemy_spawner : Node2D = enemy_spawner_scene.instantiate()
 	entity_root.add_child(enemy_spawner)
-	enemy_spawner.spawn_enemies(10)	
+	enemy_spawner.spawn_enemies(200)	
 
 func _selector_init() -> void:
 	var selector_scene : PackedScene = preload(SELECTOR_SCENE)

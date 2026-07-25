@@ -7,6 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vssw"]
 size = Vector2(2777.5, 20)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2v2bx"]
+vertices = PackedVector2Array(2272.0078, 22.96875, 2273.9922, 1399, 35.882813, 1399, 19.117188, 17.023438)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(9, 7, 2282, 13, 2284, 1409, 26, 1409)])
+
 [node name="Tutorial" type="Node2D" unique_id=779122202]
 script = ExtResource("1_2v2bx")
 
@@ -16,6 +21,23 @@ offset_right = 2309.0
 offset_bottom = 1447.0
 texture = ExtResource("1_n4f5v")
 stretch_mode = 1
+
+[node name="LevelBorderTop" type="StaticBody2D" parent="." unique_id=1693798442]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorderTop" unique_id=1217062815]
+position = Vector2(1375.25, -8)
+shape = SubResource("RectangleShape2D_0vssw")
+
+[node name="LevelBorderLeft" type="StaticBody2D" parent="." unique_id=584588028]
+position = Vector2(-20, -35)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorderLeft" unique_id=1548445046]
+position = Vector2(319, -8.000013)
+shape = SubResource("RectangleShape2D_0vssw")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1565645747]
+navigation_polygon = SubResource("NavigationPolygon_2v2bx")
 
 [node name="TextLayout" type="Control" parent="." unique_id=1888800653]
 layout_mode = 3
@@ -60,17 +82,3 @@ offset_right = 288.0
 offset_bottom = 267.0
 theme_override_fonts/normal_font = ExtResource("2_0vssw")
 text = "use wasd to move the camera around"
-
-[node name="LevelBorderTop" type="StaticBody2D" parent="." unique_id=1693798442]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorderTop" unique_id=1217062815]
-position = Vector2(1375.25, -8)
-shape = SubResource("RectangleShape2D_0vssw")
-
-[node name="LevelBorderLeft" type="StaticBody2D" parent="." unique_id=584588028]
-position = Vector2(-20, -35)
-rotation = 1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorderLeft" unique_id=1548445046]
-position = Vector2(319, -8.000013)
-shape = SubResource("RectangleShape2D_0vssw")

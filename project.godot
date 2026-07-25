@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="folkvalley"
+run/main_scene="uid://bpwwk03g5lab2"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/stretch_mode=5
+boot_splash/use_filter=false
+boot_splash/image="uid://c70hu5vks4pwp"
 
 [autoload]
 

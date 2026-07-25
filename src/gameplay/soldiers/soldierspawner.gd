@@ -8,7 +8,7 @@ func spawn_soldiers(num_spawn : int) -> void:
 	var soldier_scene : PackedScene = load(SOLDIER_SCENE_UID)
 	for x : int in num_spawn:
 		var soldier : CharacterBody2D = soldier_scene.instantiate()
-		soldier.position = Vector2(rng.randi_range(-10, 10), rng.randi_range(-10, 10)) + get_viewport().get_camera_2d().global_position
+		soldier.position = Vector2(rng.randi_range(-50, 50), rng.randi_range(-50, 50)) + get_viewport().get_camera_2d().global_position
 		add_child(soldier)
 		
 func _on_button_button_down() -> void:

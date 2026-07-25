@@ -9,7 +9,7 @@ func spawn_food(num_spawn : int) -> void:
 	var food_scene : PackedScene = load(FOOD_SCENE_UID)
 	for x : int in num_spawn:
 		var food : StaticBody2D = food_scene.instantiate()
-		food.position = Vector2(rng.randi_range(10, 1000), rng.randi_range(10, 1000))
+		food.position = Vector2(rng.randi_range(10, 4000), rng.randi_range(10, 2500))
 		add_child(food)
 
 func _on_food_spawn_timeout() -> void:
